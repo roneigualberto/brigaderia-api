@@ -5,11 +5,12 @@ const PORT = 3000;
 const app = express();
 
 
-app.set("json spaces",4);
+app.set("json spaces", 4);
 
 consign()
-        .include("routes")
-        .into(app);
+    .include("models")
+    .include("routes")
+    .into(app);
 
 
 app.listen(PORT, () => console.log(`Brigaderia API - porta ${PORT}`))
