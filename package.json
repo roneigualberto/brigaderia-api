@@ -1,0 +1,15 @@
+{
+  "name": "brigaderia-api",
+  "version": "1.0.0",
+  "description": "API de gestão de vendas de brigadeiro",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node index.js"
+  },
+  "author": "Ronei Macedo Gualberto <ronei.mac.rmg@gmail.com>",
+  "dependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "express": "^4.15.3"
+  }
+}
