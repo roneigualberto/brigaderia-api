@@ -1,6 +1,6 @@
 module.exports = app => {
 
-    const Products = app.models.products;
+    const Products = app.db.models.products;
 
     app.get("/products", (req, res) => {
 

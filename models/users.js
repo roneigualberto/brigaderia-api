@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataType) => {
 
-    const Products = sequelize.define("Products", {
+    const Users = sequelize.define("Users", {
         id: {
             type: DataType.INTEGER,
             primaryKey: true,
@@ -13,8 +13,16 @@ module.exports = (sequelize, DataType) => {
                 notEmpty: true
             }
         },
-        price: {
-            type: DataType.DOUBLE,
+        password: {
+            type: DataType.STRING,
+            allowNull: false,
+            validate: {
+                notEmpty: true
+            }
+        },
+        email: {
+            type: DataType.STRING,
+            unique: true,
             allowNull: false,
             validate: {
                 notEmpty: true
@@ -22,14 +30,10 @@ module.exports = (sequelize, DataType) => {
         }
     });
 
-    Products.associate = models => {
-        Products.belongsTo(models.Users);
+    Users.associate = models => {
+        Users.hasMany(models.Products);
     };
 
 
-    return Products;
-
-
-
+    return Users;
 }
-

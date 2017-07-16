@@ -11,6 +11,9 @@
     "babel-cli": "^6.24.1",
     "babel-preset-es2015": "^6.24.1",
     "consign": "^0.1.6",
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "pg": "^6.4.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.3.2"
   }
 }

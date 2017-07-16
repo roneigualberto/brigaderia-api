@@ -8,9 +8,12 @@ const app = express();
 app.set("json spaces", 4);
 
 consign()
-    .include("models")
-    .include("routes")
+    .include("config/datasource.js")
+    .then("db.js")
+    .then("config/middlewares.js")
+    .then("routes")
+    .then("config/boot.js")
     .into(app);
 
 
-app.listen(PORT, () => console.log(`Brigaderia API - porta ${PORT}`))
+
