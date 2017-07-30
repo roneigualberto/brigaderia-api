@@ -11,6 +11,7 @@ consign()
     .include("config/datasource.js")
     .then("db.js")
     .then("config/middlewares.js")
+    .then("api")
     .then("routes")
     .then("config/boot.js")
     .into(app);

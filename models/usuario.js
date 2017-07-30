@@ -1,19 +1,25 @@
 module.exports = (sequelize, DataType) => {
 
-    const Users = sequelize.define("Users", {
+    const config = {
+        tableName: 'usuario',
+        underscored: true,
+        paranoid: true,
+        version: true
+    };
+    const columns = {
         id: {
             type: DataType.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        name: {
+        nome: {
             type: DataType.STRING,
             allowNull: false,
             validate: {
                 notEmpty: true
             }
         },
-        password: {
+        senha: {
             type: DataType.STRING,
             allowNull: false,
             validate: {
@@ -28,12 +34,16 @@ module.exports = (sequelize, DataType) => {
                 notEmpty: true
             }
         }
-    });
-
-    Users.associate = models => {
-        Users.hasMany(models.Products);
     };
 
 
-    return Users;
+
+    const Usuario = sequelize.define("Usuario",columns,config);
+
+    Usuario.associate = models => {
+        Usuario.hasMany(models.Produto);
+    };
+
+
+    return Usuario;
 }

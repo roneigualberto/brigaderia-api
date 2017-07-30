@@ -4,6 +4,8 @@ import Sequelize from "sequelize";
 
 let db = null;
 
+
+
 module.exports = (app) => {
     if (!db) {
         const datasource = app.config.datasource;
@@ -21,6 +23,7 @@ module.exports = (app) => {
         }
 
         const dir = path.join(__dirname,"models");
+
         fs.readdirSync(dir).forEach(file => {
             const modelPath = path.join(dir,file);
             const model = sequelize.import(modelPath);
@@ -31,7 +34,10 @@ module.exports = (app) => {
 
         Object.keys(db.models).forEach(key => {
             console.log('model',db.models[key]);
-            db.models[key].associate(db.models);
+            if (db.models[key].associate) {
+                db.models[key].associate(db.models);
+            }
+            
         })
     }
 
